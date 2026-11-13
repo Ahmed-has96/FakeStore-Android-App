@@ -10,7 +10,7 @@ class ProductViewModel(application: Application) : AndroidViewModel(application)
     private val repository = ProductRepository()
 
     val products: LiveData<List<ProductModelItem>> = repository.getProducts()
-    fun getProducts(){
+    fun refreshProducts() {
         repository.refreshProducts()
     }
 }

@@ -1,64 +1,12 @@
-# FakeStore Android App 📱
+# FakeStore · Android
 
-Modern Android application built with Kotlin that integrates the FakeStore API using a clean MVVM architecture.
+En butikkapp i Kotlin. Du kan bla i en produktkatalog, lagre favoritter og legge varer i handlekurven. Når et kjøp bekreftes i appen, blir det lagt i den lokale ordrehistorikken.
 
----
+## To deler av koden
 
-## 🚀 Overview
+- **Hente produkter:** [ProductRepository](app/src/main/java/com/example/fakestore/Api/ProductRepository.kt) henter katalogen fra FakeStore API med Retrofit. [ProductViewModel](app/src/main/java/com/example/fakestore/Api/ProductViewModel.kt) gjør produktlisten tilgjengelig for [hovedskjermen](app/src/main/java/com/example/fakestore/MainActivity.kt) gjennom LiveData.
+- **Lagre lokalt:** [ProduktSQLiteHjelper](app/src/main/java/com/example/fakestore/sql/ProduktSQLiteHjelper.kt) håndterer blant annet favoritter og kjøpshistorikk i SQLite. [Handlekurv](app/src/main/java/com/example/fakestore/ui/Handlekurv.kt) viser hvordan en bekreftet handlekurv flyttes til historikken.
 
-FakeStore Android App demonstrates how to build a scalable and maintainable Android application with:
+## Kjør lokalt
 
-- API integration
-- Structured architecture (MVVM)
-- Clear separation of concerns
-- Clean UI and data flow
-
-The app fetches products from the FakeStore API and presents them in an intuitive and responsive interface.
-
----
-
-## ✨ Features
-
-- Fetch products from REST API
-- Display product list
-- Product detail screen
-- MVVM architecture pattern
-- Structured project organization
-- Clean and readable Kotlin code
-
----
-
-## 🛠 Tech Stack
-
-- **Kotlin**
-- **MVVM Architecture**
-- **Retrofit**
-- **Android Jetpack**
-- **Gradle**
-
----
-
-## 🧱 Architecture
-
-The project follows MVVM principles:
-
-- **Model** – API & data layer
-- **ViewModel** – Business logic & state handling
-- **View** – UI layer
-
-This ensures better scalability, testability and maintainability.
-
----
-
-## ▶️ Getting Started
-
-1. Clone the repository:
-   ```
-   git clone https://github.com/Ahmed-has96/FakeStore-Android-App.git
-   ```
-
-2. Open in Android Studio  
-3. Sync Gradle  
-4. Run on emulator or device  
-
----
+Åpne prosjektroten i Android Studio med JDK 17, installer Android SDK Platform 33 og synkroniser Gradle. Kjør modulen `app` på en emulator eller telefon med Android API 22 eller nyere. Produktkatalogen trenger nett ved første innlasting.

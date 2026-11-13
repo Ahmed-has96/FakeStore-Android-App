@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         val produktAdapter = ProduktAdapter(this, false,list)
         recyclerView.adapter = produktAdapter
-        productViewModel.getProducts()
+        productViewModel.refreshProducts()
 
 
         productViewModel.products.observe(this) { products ->
